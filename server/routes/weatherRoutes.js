@@ -4,13 +4,13 @@ const router = express.Router();
 const { apiKey } = require('../config');
 
 router.get('/', async (req, res) => {
-  console.log("hiiii");
+ 
   try {
     const { lat, lon } = req.query;
 
     // Call the OpenWeatherMap Weather API with the received lat and lon
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
     );
 
     res.json(response.data);
